@@ -14,6 +14,8 @@ type Host struct {
 	// The port of the upstream host.
 	Port int32 `json:"port"`
 
+        SSL bool `json:"ssl"`
+
 	Tags *Tags `json:"tags,omitempty"`
 }
 
@@ -50,7 +52,7 @@ func getService(consul *Consul, serviceName string) (*Service, error) {
 	}
 	// create service hosts
 	for _, srv := range consulService {
-		hosts = append(hosts, Host{IPAddress: srv.Address, Port: int32(srv.Port)})
+		hosts = append(hosts, Host{IPAddress: srv.Address, Port: int32(srv.Port), SSL: true})
 	}
 
 	return &Service{Hosts: hosts}, nil
