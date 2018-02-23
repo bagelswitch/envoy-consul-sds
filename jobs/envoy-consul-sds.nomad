@@ -15,7 +15,7 @@ job "envoy-consul-sds" {
 
       driver = "docker"
       config {
-        image = "783772908578.dkr.ecr.us-west-2.amazonaws.com/splat/envoy-consul-sds:0.0.6"
+        image = "783772908578.dkr.ecr.us-west-2.amazonaws.com/splat/envoy-consul-sds:0.0.7"
         network_mode = "host"
         ssl = true
       }
